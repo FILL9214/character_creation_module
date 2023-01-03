@@ -1,7 +1,9 @@
 from random import randint
+from graphic_arts.start_game_banner import run_screensaver
 
 
-def attack(char_name, char_class):
+def attack(char_name: str, char_class: str) -> str:
+    """Расчет наносимого урона."""
     if char_class == 'warrior':
         return (f'{char_name} нанёс урон равный {5 + randint(3, 5)}')
     if char_class == 'mage':
@@ -11,7 +13,8 @@ def attack(char_name, char_class):
     return (f'{char_name} не нанёс урон')
 
 
-def defence(char_name, char_class):
+def defence(char_name: str, char_class: str) -> str:
+    """Расчет блоктровки урона."""
     if char_class == 'warrior':
         return (f'{char_name} блокировал {10 + randint(5, 10)} урона')
     if char_class == 'mage':
@@ -21,7 +24,8 @@ def defence(char_name, char_class):
     return (f'{char_name} не блокировал урон')
 
 
-def special(char_name, char_class):
+def special(char_name: str, char_class: str) -> str:
+    """Применение умений."""
     if char_class == 'warrior':
         return (f'{char_name} применил умение «Выносливость {80 + 25}»')
     if char_class == 'mage':
@@ -31,7 +35,8 @@ def special(char_name, char_class):
     return (f'{char_name} не применил умение')
 
 
-def start_training(char_name, char_class):
+def start_training(char_name: str, char_class: str) -> str:
+    """Режим тренировки персонажа."""
     if char_class == 'warrior':
         print(f'{char_name}, ты Воитель — отличный боец ближнего боя.')
     if char_class == 'mage':
@@ -57,6 +62,7 @@ def start_training(char_name, char_class):
 
 
 def choice_char_class():
+    """Выбор класса персонажа."""
     approve_choice = None
     char_class = None
     while approve_choice != 'y':
@@ -80,7 +86,8 @@ def choice_char_class():
     return char_class
 
 
-def main():
+if __name__ == '__main__':
+    run_screensaver()
     print('Приветствую тебя, искатель приключений!')
     print('Прежде чем начать игру...')
     char_name = input('...назови себя: ')
@@ -92,4 +99,4 @@ def main():
     print(start_training(char_name, char_class))
 
 
-main()
+
